@@ -1,0 +1,26 @@
+body {
+    background-color: bisque;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin: auto;
+ }
+
+.title {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+.image {
+    width: 400px;
+    height: 400px;
+}
+.accordion-item {
+    border-bottom: 1px solid #ffffff;
+}
+
+/* .accordion {
+    margin: 20px auto;
+    max-width: 800px;
+} */

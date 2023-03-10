@@ -11,6 +11,8 @@ body {
     font-family: Arial, sans-serif;
     font-size: 20px;
     line-height: 1.5;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 .image {
     width: 400px;
@@ -18,9 +20,32 @@ body {
 }
 .accordion-item {
     border-bottom: 1px solid #ffffff;
+    margin-top: 30px;
+    padding-bottom: 15px;
 }
 
-/* .accordion {
-    margin: 20px auto;
-    max-width: 800px;
-} */
+
+
+.item-title {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.item-input {
+    width: 0px;
+    height: 0px;
+    appearance: none;
+}
+
+.item-input:checked + .accordion-text{
+    display: block;
+}
+
+.accordion-item:hover .accordion-text{
+    display: block;
+}
+
+.accordion-text {
+    display: none;
+    padding-top: 15px;
+}

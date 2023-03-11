@@ -30,7 +30,6 @@ body {
     padding-bottom: 15px;
     animation-name: smooth;
     animation-duration: 2s;
-     /* transform: scale(1.2); */
 }
 
 .item-input {
@@ -39,23 +38,21 @@ body {
     appearance: none;
 }
 
-.item-input:checked + .accordion-text{
+.item-input:checked~  .accordion-text{
     display: block;
+}
+
+.item-input:checked + label .plus{
+    transform: rotate(45deg)
 }
 
 .accordion-item:hover .accordion-text{
     display: block;
-    /* transition: 2s; /* Время эффекта */
-    /* transform: scale(1.2); */
 }
 
 .accordion-text {
     display: none;
     padding-top: 15px;
-}
-
-.for-title {
-    position: relative;
 }
 
 .item-title {
@@ -100,9 +97,6 @@ body {
 }
 
 .accordion-item:hover label img{
-    transform: rotate(45deg)
-}
-.item-input:checked .plus{
     transform: rotate(45deg)
 }
 

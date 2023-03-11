@@ -6,44 +6,42 @@
 
 body {
     background-color: bisque;
-    font-size: 10px;
+    font-size: 0.5rem;
 }
 
 .wrapper {
-    max-width: 400px;
+    max-width: 40em;
     margin: auto;
  }
 
 .title {
     font-family: Arial, sans-serif;
     font-size: 3.6em;
-    padding-top: 30px;
-    padding-bottom: 0px;
+    padding-top: 1em;
+    padding-bottom: 0;
 }
 .image {
-    width: 400px;
-    height: 400px;
+    width: 40em;
+    height: 40em;
 }
 .accordion-item {
-    border-bottom: 1px solid #ffffff;
-    margin-top: 30px;
-    padding-bottom: 15px;
-    animation-name: smooth;
-    animation-duration: 2s;
+    border-bottom: 0.1rem solid #ffffff;
+    margin-top: 3em;
+    padding-bottom: 1.5em;
 }
 
 .item-input {
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     appearance: none;
 }
 
-.item-input:checked~  .accordion-text{
-    display: block;
+.item-input:checked~ .title-text+img{
+    transform: rotate(45deg)
 }
 
-.item-input:checked + label .plus{
-    transform: rotate(45deg)
+.item-input:checked + .item-title{
+    color: black;
 }
 
 .accordion-item:hover .accordion-text{
@@ -52,21 +50,19 @@ body {
 
 .accordion-text {
     display: none;
-    padding-top: 15px;
+    padding-top: 1.5em;
+    transition: all .8s;
 }
 
-.item-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-size: 2.2em;
+.accordion-text img{
+    transition: all .8s;
 }
 
 .plus {
-    width: 15px;
-    height: 15px;
+    width: 1.5em;
+    height: 1.5em;
 }
+
 
 @media all and (max-width: 820px) {
     .title {
@@ -74,6 +70,10 @@ body {
     }
     .item-title {
         font-size: 1.6em;
+    }
+    .image {
+        width: calc(vw - 150px);
+        height: calc(vw - 150px);
     }
 }
 
@@ -85,18 +85,16 @@ body {
         font-size: 1.4em;
     }
     .wrapper {
-        max-width: 200px;
+        max-width: 20em;
         margin: auto;
      }
+     .image {
+        width: 20em;
+        height: 20em;
+    }
 }
 
-
-.accordion-item:hover image{
-    transition: 1s; /* Время эффекта */
-    transform: scale(1.2); /* Увеличиваем масштаб */
-}
-
-.accordion-item:hover label img{
+.accordion-item:hover label .plus{
     transform: rotate(45deg)
 }
 
@@ -105,4 +103,64 @@ body {
 }
 .accordion:hover plus{
     display: block;
+}
+
+.accordion .accordion-item label .plus{
+    display:none;
+}
+
+.accordion:hover .accordion-item label .plus{
+    display:block;
+}
+
+.accordion {
+    animation-name: smooth;
+    animation-duration: 2s;
+    color:blue;
+}
+
+.accordion:hover {
+    color: black;
+}
+
+@keyframes smooth {
+    0%     {opacity: 0}
+    12.5%  {opacity: .1}
+    25%    {opacity: .25}
+    37.5%  {opacity: .40}
+    50%    {opacity: .50}
+    62.5%  {opacity: .60}
+    75%    {opacity: .77}
+    87.5%  {opacity: .90}
+    100%   {opacity: 1}
+}
+
+.item-title {
+    display: flex;
+    flex-direction: column;
+}
+.title-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2.2em;
+}
+
+.item-input:checked~  .accordion-text{
+    display: block;
+}
+.item-input:checked+  .title-text{
+    color: black;
+}
+
+.item-input:checked+ .title-text .plus{
+    transform: rotate(45deg)
+}
+
+.accordion-item label{
+    cursor: pointer;
+}
+
+label:active {
+    color:blue;
 }

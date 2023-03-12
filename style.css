@@ -1,0 +1,176 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: bisque;
+    font-size: 0.6rem;
+}
+
+.wrapper {
+    max-width: 40em;
+    margin: auto;
+ }
+
+.title {
+    font-family: Arial, sans-serif;
+    font-size: 3.6em;
+    padding-top: 1em;
+    padding-bottom: 0;
+}
+.image {
+    width: 40em;
+    height: 40em;
+}
+.accordion-item {
+    border-bottom: 0.1rem solid #ffffff;
+    margin-top: 3em;
+    padding-bottom: 1.5em;
+}
+
+.item-input {
+    width: 0;
+    height: 0;
+    appearance: none;
+}
+
+.item-input:checked~ .title-text+img{
+    transform: rotate(45deg)
+}
+
+.item-input:checked + .item-title{
+    color: black;
+}
+
+.accordion-item:hover .accordion-text{
+    display: block;
+}
+
+.accordion-text {
+    display: none;
+    padding-top: 1.5em;
+    transition: all .8s;
+    animation-name: smooth;
+    animation-duration: 1s;
+}
+
+.accordion-text img{
+    transition: all .8s;
+}
+
+.plus {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+
+@media all and (max-width: 820px) {
+    .title {
+        font-size: 2.4em;
+    }
+    .item-title {
+        font-size: 1.4em;
+    }
+    .image {
+        width: 30em;
+        height: 30em;
+    }
+    .plus {
+        width: 1em;
+        height: 1em;
+    }
+}
+
+@media all and (max-width: 320px) {
+    .title {
+        font-size: 2em;
+    }
+    .item-title {
+        font-size: 1em;
+    }
+    .wrapper {
+        max-width: 20em;
+        margin: auto;
+     }
+     .image {
+        width: 20em;
+        height: 20em;
+    }
+    .plus {
+        width: 0.7em;
+        height: 0.7em;
+    }
+}
+
+.accordion-item:hover label .plus{
+    transform: rotate(45deg)
+}
+
+.accordion plus{
+    display: none;
+}
+.accordion:hover plus{
+    display: block;
+}
+
+.accordion .accordion-item label .plus{
+    display:none;
+}
+
+.accordion:hover .accordion-item label .plus{
+    display:block;
+}
+
+.accordion {
+    animation-name: smooth;
+    animation-duration: 2s;
+    color:blue;
+}
+
+.accordion:hover {
+    color: black;
+}
+
+@keyframes smooth {
+    0%     {opacity: 0}
+    12.5%  {opacity: .1}
+    25%    {opacity: .25}
+    37.5%  {opacity: .40}
+    50%    {opacity: .50}
+    62.5%  {opacity: .60}
+    75%    {opacity: .77}
+    87.5%  {opacity: .90}
+    100%   {opacity: 1}
+}
+
+.item-title {
+    display: flex;
+    flex-direction: column;
+}
+.title-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2.2em;
+}
+
+.item-input:checked~  .accordion-text{
+    display: block;
+}
+.item-input:checked+  .title-text{
+    color: black;
+}
+
+.item-input:checked+ .title-text .plus{
+    transform: rotate(45deg)
+}
+
+.accordion-item label{
+    cursor: pointer;
+}
+
+label:active {
+    color:blue;
+}
